@@ -34,7 +34,7 @@
         },
         {
             "id": 5,
-            "name": "eggs",
+            "name": "egg",
             "category": "dairy",
             "shelf_number": "B1",
             "price": 15.0,

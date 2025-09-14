@@ -4,6 +4,7 @@ import spacy
 import string
 import spacy.cli
 import json
+import re
 
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
@@ -37,6 +38,8 @@ def search_products(sentence):
     stopWords = set(stopwords.words('english'))
     punctuations = set(string.punctuation)
 
+    sentence = re.sub(r'\d+', '', sentence)
+
     TokenizedSentence = word_tokenize(sentence)
     FilteredSentence = [
         word.lower() for word in TokenizedSentence
@@ -46,42 +49,50 @@ def search_products(sentence):
     sentence_ = " ".join(FilteredSentence)
     doc = nlp(sentence_)
 
-    print("Original Sentence:", sentence)
-    print("Tokenized Sentence:", TokenizedSentence)
-    print("Filtered Sentence:", FilteredSentence)
+    #print("Original Sentence:", sentence)
+    #print("Tokenized Sentence:", TokenizedSentence)
+    #print("Filtered Sentence:", FilteredSentence)
 
     with open("products.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    for token in doc:
-        print(f"{token.text:<10} {token.pos_:<10} {token.tag_:<10} {token.dep_:<10} {token.lemma_:<10}")
+    #for token in doc:
+    #    print(f"{token.text:<10} {token.pos_:<10} {token.tag_:<10} {token.dep_:<10} {token.lemma_:<10}")
     
-    search_name = lambda data, term: list(filter(lambda x: term.lower() in x["name"].lower(), data))
 
     for ent in doc.ents:
         print(ent.text, ent.start_char, ent.end_char, ent.label_)
 
     print(f"\n{'Products':<20}Shelf Location")
+    print(f"{'________':<20}______________")
     productList = []
 
     for token in doc:
         if (token.pos_ == "NOUN" or token.pos_ == "PROPN") and not token.is_stop:
             product = {}
-            products = search_name(data["goods"], token.lemma_)
+            products = searchProduct(data["goods"], token.lemma_)
             #print(f" - {token.text} ({token.lemma_}) - ", f"Shelf {products[0]['shelf_number']}" if products else "Not found")
-            pro = f"{token.lemma_:<20}"
-            shell = f"{products[0]['shelf_number']}" if products else "Not found"
-            product["printElement"] =  pro + shell
-            product["location"] = products[0]['shelf_number'] if products else "Not found"
-            productList.append(product)
+            if products:
+                pro = f"{token.lemma_:<20}"
+                shell = f"|{products[0]['shelf_number']}"
+                product["printElement"] =  pro + shell
+                product["location"] = products[0]['shelf_number'] if products else "Not found"
+                productList.append(product)
 
     sorted_productList = sorted(productList, key=lambda x: (x["location"] == "Not found", x["location"]))
 
     if sorted_productList:
         for product in sorted_productList:
             print(product["printElement"])
+            
+    print(f"\n{len(sorted_productList)} Item{'s' if len(sorted_productList) > 1 else ''} Found")
 
 
+def searchProduct(data, term):
+    for item in data:
+        if term.lower() == item["name"].lower():
+            return [item]
+    return []
 #GivenSentence = "I want to buy Apples, milk, and detergent."
 #search_products(GivenSentence)
 

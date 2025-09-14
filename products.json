@@ -1,0 +1,164 @@
+{
+    "goods": [
+        {
+            "id": 1,
+            "name": "apple",
+            "category": "fruit",
+            "shelf_number": "A1",
+            "price": 120.0,
+            "unit": "kg"
+        },
+        {
+            "id": 2,
+            "name": "milk",
+            "category": "dairy",
+            "shelf_number": "B3",
+            "price": 90.0,
+            "unit": "liter"
+        },
+        {
+            "id": 3,
+            "name": "detergent",
+            "category": "cleaning",
+            "shelf_number": "C2",
+            "price": 250.0,
+            "unit": "pack"
+        },
+        {
+            "id": 4,
+            "name": "bread",
+            "category": "bakery",
+            "shelf_number": "A4",
+            "price": 80.0,
+            "unit": "loaf"
+        },
+        {
+            "id": 5,
+            "name": "eggs",
+            "category": "dairy",
+            "shelf_number": "B1",
+            "price": 15.0,
+            "unit": "piece"
+        },
+        {
+            "id": 6,
+            "name": "banana",
+            "category": "fruit",
+            "shelf_number": "A2",
+            "price": 60.0,
+            "unit": "kg"
+        },
+        {
+            "id": 7,
+            "name": "butter",
+            "category": "dairy",
+            "shelf_number": "B4",
+            "price": 200.0,
+            "unit": "pack"
+        },
+        {
+            "id": 8,
+            "name": "rice",
+            "category": "grains",
+            "shelf_number": "D1",
+            "price": 140.0,
+            "unit": "kg"
+        },
+        {
+            "id": 9,
+            "name": "sugar",
+            "category": "grocery",
+            "shelf_number": "D2",
+            "price": 120.0,
+            "unit": "kg"
+        },
+        {
+            "id": 10,
+            "name": "salt",
+            "category": "grocery",
+            "shelf_number": "D3",
+            "price": 40.0,
+            "unit": "kg"
+        },
+        {
+            "id": 11,
+            "name": "toothpaste",
+            "category": "personal care",
+            "shelf_number": "C3",
+            "price": 110.0,
+            "unit": "tube"
+        },
+        {
+            "id": 12,
+            "name": "soap",
+            "category": "personal care",
+            "shelf_number": "C1",
+            "price": 70.0,
+            "unit": "bar"
+        },
+        {
+            "id": 13,
+            "name": "chicken",
+            "category": "meat",
+            "shelf_number": "E1",
+            "price": 750.0,
+            "unit": "kg"
+        },
+        {
+            "id": 14,
+            "name": "fish",
+            "category": "meat",
+            "shelf_number": "E2",
+            "price": 900.0,
+            "unit": "kg"
+        },
+        {
+            "id": 15,
+            "name": "cheese",
+            "category": "dairy",
+            "shelf_number": "B5",
+            "price": 450.0,
+            "unit": "block"
+        },
+        {
+            "id": 16,
+            "name": "onion",
+            "category": "vegetable",
+            "shelf_number": "A3",
+            "price": 100.0,
+            "unit": "kg"
+        },
+        {
+            "id": 17,
+            "name": "tomato",
+            "category": "vegetable",
+            "shelf_number": "A5",
+            "price": 80.0,
+            "unit": "kg"
+        },
+        {
+            "id": 18,
+            "name": "potato",
+            "category": "vegetable",
+            "shelf_number": "A6",
+            "price": 60.0,
+            "unit": "kg"
+        },
+        {
+            "id": 19,
+            "name": "shampoo",
+            "category": "personal care",
+            "shelf_number": "C4",
+            "price": 350.0,
+            "unit": "bottle"
+        },
+        {
+            "id": 20,
+            "name": "tea",
+            "category": "beverage",
+            "shelf_number": "F1",
+            "price": 500.0,
+            "unit": "pack"
+        }
+    ]
+}
